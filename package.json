@@ -1,7 +1,12 @@
 {
   "name": "vuejs-paginate-next",
-  "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "private": false,
+  "keywords": [
+    "vue",
+    "paginate",
+    "pagination"
+  ],
   "files": [
     "dist"
   ],
@@ -13,6 +18,18 @@
       "require": "./dist/vuejs-paginate-next.umd.js"
     }
   },
+  "unpkg": "./dist/vuejs-paginate-next.umd.js",
+  "jsdelivr": "./dist/vuejs-paginate-next.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudeep/vuejs-paginate-next"
+  },
+  "bugs": {
+    "url": "https://github.com/cloudeep/vuejs-paginate-next/issues"
+  },
+  "homepage": "https://github.com/cloudeep/vuejs-paginate-next#readme",
+  "author": "Neil Perng",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -1,14 +1,17 @@
 # vuejs-paginate-next
 
-<!-- [![npm version](https://badge.fury.io/js/vuejs-paginate.svg)](https://badge.fury.io/js/vuejs-paginate) [![Build Status](https://travis-ci.org/lokyoung/vuejs-paginate.svg?branch=master)](https://travis-ci.org/lokyoung/vuejs-paginate) [![Code Climate](https://codeclimate.com/github/lokyoung/vuejs-paginate/badges/gpa.svg)](https://codeclimate.com/github/lokyoung/vuejs-paginate)
+[![npm version](https://badge.fury.io/js/vuejs-paginate-next.svg)](https://badge.fury.io/js/vuejs-paginate-next)
+<a href="LICENSE">
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT">
+</a>
 
-[![NPM](https://nodei.co/npm/vuejs-paginate.png)](https://nodei.co/npm/vuejs-paginate/) -->
+[![NPM](https://nodei.co/npm/vuejs-paginate-next.png)](https://nodei.co/npm/vuejs-paginate-next/)
 
 A Vue.js (v3) component to make pagination, based on [vuejs-paginate](https://github.com/lokyoung/vuejs-paginate) from [lokyoung](https://github.com/lokyoung). Thank [bverheec](https://github.com/bverheec) for his Vue.js v3 solution in issue [#128](https://github.com/lokyoung/vuejs-paginate/issues/128).
 
 Easy to use by providing simple api. And you can customize the style of this component by css.
 
-<img src="https://raw.githubusercontent.com/cloudeep/vuejs-paginate-next/public/vuejs-paginate-next.gif" width="550" />
+<img src="https://raw.githubusercontent.com/cloudeep/vuejs-paginate-next/main/public/vuejs-paginate-next.gif" width="550"/>
 
 <!-- [Online demo](https://jsfiddle.net/lokyoung/u3u3nzns/) -->
 
