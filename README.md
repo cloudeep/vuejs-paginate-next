@@ -19,23 +19,13 @@ Easy to use by providing simple api. And you can customize the style of this com
 Install the npm package.
 
 ```js
-$ npm install vuejs-paginate --save
+$ npm install vuejs-paginate-next --save
 ```
 
 Register the component.
 
-- ES5
-
 ```js
-var Paginate = require("vuejs-paginate");
-Vue.component("paginate", Paginate);
-```
-
-- ES6
-
-```js
-import Paginate from "vuejs-paginate";
-Vue.component("paginate", Paginate);
+import Paginate from "vuejs-paginate-next";
 ```
 
 _Note_: For version <= 0.5.0, use `Vue.use(Paginate)` to register the component after import the package. But recommend to use the latest version now.
@@ -49,12 +39,6 @@ Include the source file.
 <script src="https://unpkg.com/vuejs-paginate@latest"></script>
 <!-- or use the specify version -->
 <script src="https://unpkg.com/vuejs-paginate@0.9.0"></script>
-```
-
-Register the component.
-
-```js
-Vue.component("paginate", VuejsPaginate);
 ```
 
 ## Usage
@@ -108,6 +92,9 @@ So this is also avaliable
 
 <script>
   export default {
+    components: {
+      paginate: VuejsPaginateNext,
+    },
     methods: {
       clickCallback (pageNum) => {
         console.log(pageNum)
@@ -164,16 +151,16 @@ Must use kebab-case for props in pure HTML.
 JavaScript
 
 ```js
-Vue.component("paginate", VuejsPaginate);
-
-new Vue({
-  el: "#app",
+new Vue.createApp({
+  components: {
+    paginate: VuejsPaginateNext,
+  },
   methods: {
     clickCallback: function (pageNum) {
       console.log(pageNum);
     },
   },
-});
+}).mount("#app");
 ```
 
 HTML
