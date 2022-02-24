@@ -1,5 +1,6 @@
 # vuejs-paginate-next
 
+<a href="https://www.npmjs.com/package/vuejs-paginate-next">
 <img src="https://img.shields.io/npm/v/vuejs-paginate-next.svg" alt="npm">
 </a>
 <a href="LICENSE">
@@ -54,7 +55,7 @@ Include the source file.
 <!-- use the latest release -->
 <script src="https://unpkg.com/vuejs-paginate-next@latest/dist/vuejs-paginate-next.umd.js"></script>
 <!-- or use the specify version -->
-<script src="https://unpkg.com/vuejs-paginate-next@1.0.1/dist/vuejs-paginate-next.umd.js"></script>
+<script src="https://unpkg.com/vuejs-paginate-next@1.0.2/dist/vuejs-paginate-next.umd.js"></script>
 ```
 
 ## Usage
