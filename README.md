@@ -1,17 +1,24 @@
 # vuejs-paginate-next
 
-[![npm version](https://badge.fury.io/js/vuejs-paginate-next.svg)](https://badge.fury.io/js/vuejs-paginate-next)
+<img src="https://img.shields.io/npm/v/vuejs-paginate-next.svg" alt="npm">
+</a>
 <a href="LICENSE">
 <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT">
 </a>
 
-[![NPM](https://nodei.co/npm/vuejs-paginate-next.png)](https://nodei.co/npm/vuejs-paginate-next/)
+[![vue](https://badges.aleen42.com/src/vue.svg)](https://badges.aleen42.com/src/vue.svg)
+[![javascript](https://badges.aleen42.com/src/javascript.svg)](https://badges.aleen42.com/src/javascript.svg)
+[![vitejs](https://badges.aleen42.com/src/vitejs.svg)](https://badges.aleen42.com/src/vitejs.svg)
+[![rollup](https://badges.aleen42.com/src/rollup.svg)](https://badges.aleen42.com/src/rollup.svg)
+
+<!-- [![npm version](https://badge.fury.io/js/vuejs-paginate-next.svg)](https://badge.fury.io/js/vuejs-paginate-next) -->
+<!-- [![npm](https://nodei.co/npm/vuejs-paginate-next.png)](https://nodei.co/npm/vuejs-paginate-next/) -->
+
+<img src="https://raw.githubusercontent.com/cloudeep/vuejs-paginate-next/main/public/vuejs-paginate-next.gif" width="550"/>
 
 A Vue.js (v3) component to make pagination, based on [vuejs-paginate](https://github.com/lokyoung/vuejs-paginate) from [lokyoung](https://github.com/lokyoung). Thank [bverheec](https://github.com/bverheec) for his Vue.js v3 solution in issue [#128](https://github.com/lokyoung/vuejs-paginate/issues/128).
 
-Easy to use by providing simple api. And you can customize the style of this component by css.
-
-<img src="https://raw.githubusercontent.com/cloudeep/vuejs-paginate-next/main/public/vuejs-paginate-next.gif" width="550"/>
+Easy to use by providing simple api. And you can customize the style of this component by CSS.
 
 <!-- [Online demo](https://jsfiddle.net/lokyoung/u3u3nzns/) -->
 
@@ -31,7 +38,13 @@ Register the component.
 import Paginate from "vuejs-paginate-next";
 ```
 
-_Note_: For version <= 0.5.0, use `Vue.use(Paginate)` to register the component after import the package. But recommend to use the latest version now.
+---
+
+_Note_: For users using original **vuejs-paginate** package, just directly adopt **initial-page** as initial page settign instead of **value**.
+
+After Vue 3, the `Vue.use(Paginate)` is **deprecated**. You should use `app.createApp({...}).use(Paginate).mount('#app')` instead.
+
+---
 
 ### CDN
 
@@ -39,9 +52,9 @@ Include the source file.
 
 ```html
 <!-- use the latest release -->
-<script src="https://unpkg.com/vuejs-paginate@latest"></script>
+<script src="https://unpkg.com/vuejs-paginate-next@latest/dist/vuejs-paginate-next.umd.js"></script>
 <!-- or use the specify version -->
-<script src="https://unpkg.com/vuejs-paginate@0.9.0"></script>
+<script src="https://unpkg.com/vuejs-paginate-next@1.0.1/dist/vuejs-paginate-next.umd.js"></script>
 ```
 
 ## Usage
@@ -94,19 +107,24 @@ So this is also avaliable
 </template>
 
 <script>
+  import Paginate from 'vuejs-paginate-next';
   export default {
     components: {
-      paginate: VuejsPaginateNext,
+      paginate: Paginate,
     },
     methods: {
       clickCallback (pageNum) => {
         console.log(pageNum)
       }
-    }
-  }
+    },
+  };
 </script>
 
 <style lang="css">
+  /* Adopt bootstrap pagination stylesheet. */
+  @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+
+  /* Write your own CSS for pagination */
   .pagination {
   }
   .page-item {

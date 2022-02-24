@@ -1,6 +1,7 @@
 {
   "name": "vuejs-paginate-next",
   "version": "1.0.1",
+  "description": "A simple Vue3 pagination component.",
   "private": false,
   "keywords": [
     "vue",
