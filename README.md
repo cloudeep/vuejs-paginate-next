@@ -1,6 +1,6 @@
 # vuejs-paginate-next
 
-![tests](https://img.shields.io/github/workflow/status/cloudeep/vuejs-paginate-next/Tests)
+![tests](https://github.com/cloudeep/vuejs-paginate-next/actions/workflows/test.yaml/badge.svg)
 <a href="https://www.npmjs.com/package/vuejs-paginate-next">
 <img src="https://img.shields.io/npm/v/vuejs-paginate-next.svg" alt="npm">
 </a>
