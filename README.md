@@ -1,5 +1,6 @@
 # vuejs-paginate-next
 
+![tests](https://img.shields.io/github/workflow/status/cloudeep/vuejs-paginate-next/Tests)
 <a href="https://www.npmjs.com/package/vuejs-paginate-next">
 <img src="https://img.shields.io/npm/v/vuejs-paginate-next.svg" alt="npm">
 </a>
@@ -11,7 +12,7 @@
 [![javascript](https://badges.aleen42.com/src/javascript.svg)](https://badges.aleen42.com/src/javascript.svg)
 [![vitejs](https://badges.aleen42.com/src/vitejs.svg)](https://badges.aleen42.com/src/vitejs.svg)
 [![rollup](https://badges.aleen42.com/src/rollup.svg)](https://badges.aleen42.com/src/rollup.svg)
-![tests](https://github.com/mengxiong10/vue-datepicker-next/actions/workflows/tests.yml/badge.svg)
+
 <!-- [![npm version](https://badge.fury.io/js/vuejs-paginate-next.svg)](https://badge.fury.io/js/vuejs-paginate-next) -->
 <!-- [![npm](https://nodei.co/npm/vuejs-paginate-next.png)](https://nodei.co/npm/vuejs-paginate-next/) -->
 
