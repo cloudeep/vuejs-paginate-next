@@ -42,7 +42,7 @@ import Paginate from "vuejs-paginate-next";
 
 ---
 
-_Note_: For users using original **vuejs-paginate** package, just directly adopt **initial-page** as initial page settign instead of **value**.
+_Note_: For users using original **vuejs-paginate** package, just directly adopt **initial-page** as initial page setting instead of **value**.
 
 After Vue 3, the `Vue.use(Paginate)` is **deprecated**. You should use `app.createApp({...}).use(Paginate).mount('#app')` instead.
 
