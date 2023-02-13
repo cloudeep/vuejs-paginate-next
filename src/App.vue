@@ -1,20 +1,20 @@
 <script>
-import VuejsPaginateNext from './components/Paginate.vue'
+import VuejsPaginateNext from "./components/Paginate.vue";
 
 export default {
   data() {
     return {
       page: 1,
-    }
+    };
   },
   components: {
     paginate: VuejsPaginateNext,
-  }
-}
+  },
+};
 </script>
 
 <template>
-  <div style="padding-left: 20px;">
+  <div style="padding-left: 20px">
     <h2>vuejs-paginate-next</h2>
     <hr />
 
@@ -34,7 +34,24 @@ export default {
     </div>
 
     <div>
-      <h3>Pagination component with 'li' tag surrounded (Bootstrap 5 default)</h3>
+      <h3>Pagination with hide-prev-next</h3>
+      <paginate
+        id="unit"
+        :page-count="10"
+        :page-range="5"
+        :margin-pages="0"
+        :initial-page="2"
+        :prev-class="'ignore'"
+        :next-class="'ignore'"
+        :disabled-class="'ignore'"
+        :hide-prev-next="true"
+      ></paginate>
+    </div>
+
+    <div>
+      <h3>
+        Pagination component with 'li' tag surrounded (Bootstrap 5 default)
+      </h3>
       <!-- The 'pagination' style using in containerClass comes from bootstrap -->
       <paginate
         v-model="page"
@@ -46,7 +63,10 @@ export default {
     </div>
 
     <div>
-      <h3>Pagination component with 'li' tag surrounded (Bootstrap 5 and classes set)</h3>
+      <h3>
+        Pagination component with 'li' tag surrounded (Bootstrap 5 and classes
+        set)
+      </h3>
       <!-- The 'pagination' style using in containerClass comes from bootstrap -->
       <paginate
         v-model="page"

@@ -1,153 +1,153 @@
 <script>
-export default ({
+export default {
   data() {
     return {
       innerValue: 1,
-    }
+    };
   },
   props: {
     modelValue: {
-      type: Number
+      type: Number,
     },
     pageCount: {
       type: Number,
-      required: true
+      required: true,
     },
     initialPage: {
       type: Number,
-      default: 1
+      default: 1,
     },
     forcePage: {
-      type: Number
+      type: Number,
     },
     clickHandler: {
       type: Function,
-      default: () => { }
+      default: () => {},
     },
     pageRange: {
       type: Number,
-      default: 3
+      default: 3,
     },
     marginPages: {
       type: Number,
-      default: 1
+      default: 1,
     },
     prevText: {
       type: String,
-      default: 'Prev'
+      default: "Prev",
     },
     nextText: {
       type: String,
-      default: 'Next'
+      default: "Next",
     },
     breakViewText: {
       type: String,
-      default: '…'
+      default: "…",
     },
     containerClass: {
       type: String,
-      default: 'pagination'
+      default: "pagination",
     },
     pageClass: {
       type: String,
-      default: 'page-item'
+      default: "page-item",
     },
     pageLinkClass: {
       type: String,
-      default: 'page-link'
+      default: "page-link",
     },
     prevClass: {
       type: String,
-      default: 'page-item'
+      default: "page-item",
     },
     prevLinkClass: {
       type: String,
-      default: 'page-link'
+      default: "page-link",
     },
     nextClass: {
       type: String,
-      default: 'page-item'
+      default: "page-item",
     },
     nextLinkClass: {
       type: String,
-      default: 'page-link'
+      default: "page-link",
     },
     breakViewClass: {
-      type: String
+      type: String,
     },
     breakViewLinkClass: {
-      type: String
+      type: String,
     },
     activeClass: {
       type: String,
-      default: 'active'
+      default: "active",
     },
     disabledClass: {
       type: String,
-      default: 'disabled'
+      default: "disabled",
     },
     noLiSurround: {
       type: Boolean,
-      default: false
+      default: false,
     },
     firstLastButton: {
       type: Boolean,
-      default: false
+      default: false,
     },
     firstButtonText: {
       type: String,
-      default: 'First'
+      default: "First",
     },
     lastButtonText: {
       type: String,
-      default: 'Last'
+      default: "Last",
     },
     hidePrevNext: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     selected: {
       get: function () {
-        return this.modelValue || this.innerValue
+        return this.modelValue || this.innerValue;
       },
       set: function (newValue) {
-        this.innerValue = newValue
-      }
+        this.innerValue = newValue;
+      },
     },
     pages: function () {
-      let items = {}
+      let items = {};
       if (this.pageCount <= this.pageRange) {
         for (let index = 0; index < this.pageCount; index++) {
           let page = {
             index: index,
             content: index + 1,
-            selected: index === (this.selected - 1)
-          }
-          items[index] = page
+            selected: index === this.selected - 1,
+          };
+          items[index] = page;
         }
       } else {
-        const halfPageRange = Math.floor(this.pageRange / 2)
+        const halfPageRange = Math.floor(this.pageRange / 2);
 
-        let setPageItem = index => {
+        let setPageItem = (index) => {
           let page = {
             index: index,
             content: index + 1,
-            selected: index === (this.selected - 1)
-          }
+            selected: index === this.selected - 1,
+          };
 
-          items[index] = page
-        }
+          items[index] = page;
+        };
 
-        let setBreakView = index => {
+        let setBreakView = (index) => {
           let breakView = {
             disabled: true,
-            breakView: true
-          }
+            breakView: true,
+          };
 
-          items[index] = breakView
-        }
+          items[index] = breakView;
+        };
 
         // 1st - loop thru low end of margin pages
         for (let i = 0; i < this.marginPages; i++) {
@@ -166,78 +166,89 @@ export default ({
           selectedRangeLow = selectedRangeHigh - this.pageRange + 1;
         }
 
-        for (let i = selectedRangeLow; i <= selectedRangeHigh && i <= this.pageCount - 1; i++) {
+        for (
+          let i = selectedRangeLow;
+          i <= selectedRangeHigh && i <= this.pageCount - 1;
+          i++
+        ) {
           setPageItem(i);
         }
 
         // Check if there is breakView in the left of selected range
         if (selectedRangeLow > this.marginPages) {
-          setBreakView(selectedRangeLow - 1)
+          setBreakView(selectedRangeLow - 1);
         }
 
         // Check if there is breakView in the right of selected range
         if (selectedRangeHigh + 1 < this.pageCount - this.marginPages) {
-          setBreakView(selectedRangeHigh + 1)
+          setBreakView(selectedRangeHigh + 1);
         }
 
         // 3rd - loop thru high end of margin pages
-        for (let i = this.pageCount - 1; i >= this.pageCount - this.marginPages; i--) {
+        for (
+          let i = this.pageCount - 1;
+          i >= this.pageCount - this.marginPages;
+          i--
+        ) {
           setPageItem(i);
         }
       }
-      return items
-    }
+      return items;
+    },
   },
   methods: {
     handlePageSelected(selected) {
-      if (this.selected === selected) return
+      if (this.selected === selected) return;
 
-      this.innerValue = selected
-      this.$emit('update:modelValue', selected)
-      this.clickHandler(selected)
+      this.innerValue = selected;
+      this.$emit("update:modelValue", selected);
+      this.clickHandler(selected);
     },
     prevPage() {
-      if (this.selected <= 1) return
+      if (this.selected <= 1) return;
 
-      this.handlePageSelected(this.selected - 1)
+      this.handlePageSelected(this.selected - 1);
     },
     nextPage() {
-      if (this.selected >= this.pageCount) return
+      if (this.selected >= this.pageCount) return;
 
-      this.handlePageSelected(this.selected + 1)
+      this.handlePageSelected(this.selected + 1);
     },
     firstPageSelected() {
-      return this.selected === 1
+      return this.selected === 1;
     },
     lastPageSelected() {
-      return (this.selected === this.pageCount) || (this.pageCount === 0)
+      return this.selected === this.pageCount || this.pageCount === 0;
     },
     selectFirstPage() {
-      if (this.selected <= 1) return
+      if (this.selected <= 1) return;
 
-      this.handlePageSelected(1)
+      this.handlePageSelected(1);
     },
     selectLastPage() {
-      if (this.selected >= this.pageCount) return
+      if (this.selected >= this.pageCount) return;
 
-      this.handlePageSelected(this.pageCount)
-    }
+      this.handlePageSelected(this.pageCount);
+    },
   },
   beforeMount() {
-    this.innerValue = this.initialPage
+    this.innerValue = this.initialPage;
   },
   beforeUpdate() {
-    if (this.forcePage === undefined) return
+    if (this.forcePage === undefined) return;
     if (this.forcePage !== this.selected) {
-      this.selected = this.forcePage
+      this.selected = this.forcePage;
     }
   },
-})
+};
 </script>
 
 <template>
   <ul :class="containerClass" v-if="!noLiSurround">
-    <li v-if="firstLastButton" :class="[pageClass, firstPageSelected() ? disabledClass : '']">
+    <li
+      v-if="firstLastButton"
+      :class="[pageClass, firstPageSelected() ? disabledClass : '']"
+    >
       <a
         @click="selectFirstPage()"
         @keyup.enter="selectFirstPage()"
@@ -263,19 +274,31 @@ export default ({
     <li
       v-for="page in pages"
       :key="page.index"
-      :class="[pageClass, page.selected ? activeClass : '', page.disabled ? disabledClass : '', page.breakView ? breakViewClass : '']"
+      :class="[
+        pageClass,
+        page.selected ? activeClass : '',
+        page.disabled ? disabledClass : '',
+        page.breakView ? breakViewClass : '',
+      ]"
     >
-      <a v-if="page.breakView" :class="[pageLinkClass, breakViewLinkClass]" tabindex="0">
+      <a
+        v-if="page.breakView"
+        :class="[pageLinkClass, breakViewLinkClass]"
+        tabindex="0"
+      >
         <slot name="breakViewContent">{{ breakViewText }}</slot>
       </a>
-      <a v-else-if="page.disabled" :class="pageLinkClass" tabindex="0">{{ page.content }}</a>
+      <a v-else-if="page.disabled" :class="pageLinkClass" tabindex="0">{{
+        page.content
+      }}</a>
       <a
         v-else
         @click="handlePageSelected(page.index + 1)"
         @keyup.enter="handlePageSelected(page.index + 1)"
         :class="pageLinkClass"
         tabindex="0"
-      >{{ page.content }}</a>
+        >{{ page.content }}</a
+      >
     </li>
 
     <li
@@ -291,7 +314,10 @@ export default ({
       ></a>
     </li>
 
-    <li v-if="firstLastButton" :class="[pageClass, lastPageSelected() ? disabledClass : '']">
+    <li
+      v-if="firstLastButton"
+      :class="[pageClass, lastPageSelected() ? disabledClass : '']"
+    >
       <a
         @click="selectLastPage()"
         @keyup.enter="selectLastPage()"
@@ -323,7 +349,11 @@ export default ({
       <a
         v-if="page.breakView"
         :key="page.index"
-        :class="[pageLinkClass, breakViewLinkClass, page.disabled ? disabledClass : '']"
+        :class="[
+          pageLinkClass,
+          breakViewLinkClass,
+          page.disabled ? disabledClass : '',
+        ]"
         tabindex="0"
       >
         <slot name="breakViewContent">{{ breakViewText }}</slot>
@@ -331,9 +361,14 @@ export default ({
       <a
         v-else-if="page.disabled"
         :key="page.index"
-        :class="[pageLinkClass, page.selected ? activeClass : '', disabledClass]"
+        :class="[
+          pageLinkClass,
+          page.selected ? activeClass : '',
+          disabledClass,
+        ]"
         tabindex="0"
-      >{{ page.content }}</a>
+        >{{ page.content }}</a
+      >
       <a
         v-else
         :key="page.index"
@@ -341,7 +376,8 @@ export default ({
         @keyup.enter="handlePageSelected(page.index + 1)"
         :class="[pageLinkClass, page.selected ? activeClass : '']"
         tabindex="0"
-      >{{ page.content }}</a>
+        >{{ page.content }}</a
+      >
     </template>
     <a
       v-if="!(lastPageSelected() && hidePrevNext)"
@@ -362,5 +398,4 @@ export default ({
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
